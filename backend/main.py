@@ -12,7 +12,10 @@ def create_connection():
     except sqlite3.Error as e:
         print(f"Error connecting to SQLite: {e}")
         return None
-    
+@app.route('/logout')
+def logout():
+ # Clears all session data
+    return redirect(url_for('home')) 
 @app.route('/mandatory-courses')
 def mandatory_courses():
     return render_template('superadmin/mandatory-courses.html')
